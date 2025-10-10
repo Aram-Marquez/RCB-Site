@@ -4331,4 +4331,12 @@ body.is-preload #banner p {
     position: absolute;
     width: 100%;
 }
-
+#footer h2 {
+    color: #241f19 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 1.5rem; /* adjust as needed */
+    line-height: 1.2;
+    z-index: 2;
+}
