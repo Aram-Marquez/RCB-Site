@@ -142,7 +142,7 @@
                                         <a href="#" class="image"><img src="images/Cesar.png" alt="" /></a>
                                         <h3 class="major" style="color: #241f19;">Cesar San Nicolas</h3>
                                         <p style="font-weight:bold">Gerente de Proyectos</p>
-                                        <p>Hace que las cosas pasen, sin drama y con estilo.</p>
+                                        <p>Su enfoque estratégico mantiene cada proyecto en marcha y bien encaminado.</p>
                           
                                     </article>
                                     <article>
@@ -183,10 +183,10 @@
                                     </article>
 
                                     <article>
-                                        <a href="#" class="image"><img src="images/Ivi.png" alt="" /></a>
-                                        <h3 class="major" style="color: #241f19;">Ivana Olvera</h3>
-                                        <p style="font-weight:bold">Guionista</p>
-                                        <p>Transforma ideas en diálogos y escenas que cautivan.</p>
+                                        <a href="#" class="image"><img src="images/Nadia.png" alt="" /></a>
+                                        <h3 class="major" style="color: #241f19;">Nadia Delgadillo</h3>
+                                        <p style="font-weight:bold">Artista 3D</p>
+                                        <p>Creando modelos 3D con calidad, estilo y animaciones con impacto.</p>
                            
                                     </article>
                                 </section>
@@ -218,27 +218,35 @@
         <div class="inner"> 
             <h2 class="major" style="color: #241f19;"><br>¡Trabajemos juntos!</h2> 
             <p>Cuéntanos un poco acerca de tu idea y con gusto te atenderemos</p> 
-            <form method="post" action="#"> 
+            <form action="https://formspree.io/f/mjkaaabv" method="POST">
                 <div class="fields"> 
                     <div class="field"> 
-                        <label for="name" style="color: #241f19;">Nombre</label>                         
-                        <input type="text" name="name" id="name"/> 
+                    <label for="name" style="color: #241f19;">Nombre</label>                         
+                    <input type="text" name="name" id="name" required /> 
                     </div>                     
+
                     <div class="field"> 
-                        <label for="email" style="color: #241f19;">Email</label>                         
-                        <input type="email" name="email" id="email"/> 
+                    <label for="email" style="color: #241f19;">Email</label>                         
+                    <input type="email" name="email" id="email" required /> 
                     </div>                     
+
                     <div class="field"> 
-                        <label for="message" style="color: #241f19;">Mensaje - Presupuesto</label>                         
-                        <textarea name="message" id="message" rows="4"></textarea> 
+                    <label for="message" style="color: #241f19;">Mensaje - Presupuesto</label>                         
+                    <textarea name="message" id="message" rows="4" required></textarea> 
                     </div>                     
                 </div>                 
+
+                <!-- Optional hidden fields -->
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde RCB Studio">
+                <input type="hidden" name="_next" value="https://rcbstudio.mx/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+
                 <ul class="actions"> 
                     <li>
-                        <input  type="submit" value="Mandar mensaje" />
+                    <input type="submit" value="Mandar mensaje" />
                     </li>                     
                 </ul>                 
-            </form>             
+            </form>         
             <ul class="contact"> 
                 <li class="icon solid fa-envelope">
                     <a href="https://www.rightclickbandits@gmail.com" style="color: #241f19;">rightclickbandits@gmail.com</a>
