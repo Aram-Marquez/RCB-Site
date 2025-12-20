@@ -1,0 +1,11 @@
+---
+interface Props {
+    id: string
+}
+
+const { id } = Astro.props
+---
+
+<div id={id} class="loader z-300 fixed w-[100vw] h-[100dvh] overflow-clip bg-rcbBlue transition duration-250 flex justify-center items-center data-[loaded=true]:pointer-events-none data-[loaded=true]:opacity-0">
+    <span class="w-[4rem] h-[4rem] border-[0.4rem] border-white border-b-transparent rounded-full inline-block [animation:rotation_1s_linear_infinite]"></span>
+</div>

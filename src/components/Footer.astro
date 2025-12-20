@@ -1,0 +1,20 @@
+---
+import Instagram from "../components/icons/Instagram.astro"
+import Facebook from "../components/icons/Facebook.astro"
+
+import { Image } from "astro:assets"
+import RCBLogo from "../assets/footer_logo.svg"
+
+const curYear = (new Date()).getFullYear()
+---
+<footer class="h-[8.75rem] bg-footer">
+    <div class="md:px-[9rem] flex justify-between items-center">
+
+        <Image loading="lazy" src={RCBLogo} class="w-[104px] 2xl:w-[156px] h-auto inline-block pointer-events-none m-[1.25rem] select-none" alt="RCB Studio logo"/>
+        <div class="font-redHatDisplay text-white flex flex-col md:flex-row gap-x-[3rem] pr-[1rem]">
+            <a href="https://www.facebook.com/RCBstudios" target="_blank" class="inline-flex items-center"><span class="h-[2rem] flex"><Facebook/>&nbsp;</span>/RCBStudioOficial</a>
+            <a href="https://www.instagram.com/rcbstudio_" target="_blank" class="inline-flex items-center"><span class="h-[2rem] flex"><Instagram/>&nbsp;</span>@rcbstudio_</a>
+        </div>
+    </div>
+    <p class="font-redHatDisplay text-white text-center">© {curYear} RCB Studio - Todos los derechos reservados.</p>
+</footer>

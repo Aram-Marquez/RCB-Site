@@ -1,0 +1,19 @@
+[
+	{
+		"title": "The Sound of Delight",
+		"description": "Sigue a \"Delight\", un zorro con problemas de audición mientras lidia con el estigma de su discapacidad, en un mundo de magia y maravillas.",
+		"picture": "sound-of-delight.jpeg",
+		"alt": "The Sound of Delight banner",
+		"url": "https://vimeo.com/1002971564"
+	},
+	{
+		"title": "Lorem Ipsum",
+		"description": "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+		"picture": "placeholder1.jpeg"
+	},
+	{
+		"title": "Ut enim ad minim veniam",
+		"description": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+		"picture": "placeholder2.jpeg"
+	}
+]

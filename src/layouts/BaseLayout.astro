@@ -1,0 +1,50 @@
+---
+import '../styles/global.css'
+
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Loader from '../components/Loader.astro';
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+//console.log(import.meta.env.PUBLIC_CAPTCHA_KEY)
+
+const { title, description } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+        {
+            (description != null && description != '') &&
+            <meta name="description" content={ description } />
+        }
+
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="RCBstudio" />
+		
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{ title }</title>
+        {/* <script is:inline src={'https://www.google.com/recaptcha/enterprise.js?render='+import.meta.env.PUBLIC_CAPTCHA_KEY} async defer></script> */}
+        <script is:inline src={'https://www.google.com/recaptcha/enterprise.js?render='+import.meta.env.PUBLIC_CAPTCHA_KEY} async defer></script>
+        {/* <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script> */}
+
+	</head>
+	<body class="overflow-clip data-[loaded=true]:overflow-y-auto data-[loaded=true]:overflow-x-clip">
+		<Loader id="loader"/>
+        <Navbar/>
+		<slot/>
+        <Footer/>
+	</body>
+	</html>
+	
+<script src="../scripts/main.ts"></script>

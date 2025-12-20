@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-rubik: "Rubik", sans-serif;
+    --font-figtree: "Figtree", sans-serif;
+    --font-redHatDisplay: "Red Hat Display", sans-serif;
+
+    --color-rcbBlue: #003F6E;
+    --color-rcbBlueLight: #11629E;
+    --color-rcbBlueShadow: #0C3552;
+
+    --color-rcbSky: #51C1E1;
+    --color-rcbRed: #D22E1C;
+    --color-rcbDarkRed: #961E11;
+    --color-rcbOrange: #F08300;
+    --color-rcbBlack: #2E2D2C;
+
+    /* 202020ED */
+    --color-footer: #1E1E1E;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.navbar-height {
+    @apply h-[4.5rem] 2xl:h-[7rem]
+}
+
+.section-height {
+    @apply min-h-[calc(100lvh-4.5rem)] 2xl:min-h-[calc(100lvh-7rem)]
+}
+
+.fade-left {
+    @apply -translate-x-1/2 opacity-0;
+}
+
+.fade-right {
+    @apply translate-x-1/2 opacity-0;
+}
+
+.fade-up {
+    @apply -translate-y-1/2 opacity-0;
+}
+
+.fade-down {
+    @apply translate-y-1/2 opacity-0;
+}
+
+.fade-in {
+    @apply scale-50 opacity-0;
+}
+
+.foreground {
+    @apply relative z-1 
+}
+
+#start3D canvas {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 750ms ease-in-out, transform 750ms ease-in-out;
+    transform: translate(50%,0);
+}
+
+.recent-card-animations {
+    @apply opacity-0;
+    @apply data-[position=0]:scale-[115%] data-[position=0]:z-2 data-[position=0]:opacity-100 data-[position=0]:cursor-pointer;
+    @apply data-[position=1]:-translate-x-[75%] data-[position=1]:z-1 data-[position=1]:opacity-100;
+    @apply data-[position=-1]:translate-x-[75%] data-[position=-1]:z-1 data-[position=-1]:opacity-100;
+    @apply data-[position=2]:scale-[87%] data-[position=2]:-translate-x-[115%];
+    @apply data-[position=-2]:scale-[87%] data-[position=-2]:translate-x-[115%];
+}
+
+.recent-card-descriptions {
+    @apply opacity-0 select-none pointer-events-none;
+    @apply data-[position=0]:opacity-100 data-[position=0]:select-text data-[position=0]:pointer-events-auto;
+}
+
+@keyframes scroll {
+	0% { transform: translateX(-16.667%); }
+	100% { transform: translateX(-50%);}
+}
+
+/*.servicesCarousel {
+    animation: scroll 25s linear infinite;
+}*/
+
+.about-us-flipped {
+    @apply rotate-y-180
+}
+
+.grecaptcha-badge { visibility: hidden; }

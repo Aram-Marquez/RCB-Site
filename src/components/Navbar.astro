@@ -1,0 +1,53 @@
+---
+
+import Sun from '../components/icons/Sun.astro';
+
+import { Image } from 'astro:assets';
+import RCBLogo from '../assets/navbar_logo.svg'
+
+const {pathname} = Astro.url;
+
+
+---
+<nav class="navbar-height px-[1rem] xl:px-[2rem] bg-white top-0 z-200 flex justify-between gap-x-[0.5rem] xl:gap-x-[1rem] sticky">
+    <Image src={RCBLogo} loading="eager" class="w-[6.5rem] 2xl:w-[9.75rem] h-auto inline-block pointer-events-none m-[0.25rem] select-none" alt="RCB Studio logo"/>
+
+    <ul class="hidden font-rubik font-medium text-[1rem] 2xl:text-[1.5rem] text-center lg:flex items-center gap-x-[0.5rem] xl:gap-x-[1rem]">
+        <li aria-current={pathname.slice(1) == '' ? 'page' : false} class="aria-[current='page']:text-rcbOrange flex flex-col justify-between h-[100%]">
+            <div class="bg-rcbOrange h-[1rem] rounded-b-lg"></div>
+            <a href="#" class="m-[1rem]">Inicio</a>
+            <div class="h-[1rem]"></div>
+        </li>
+        <li class="flex flex-col justify-between h-[100%]">
+            <div class="h-[1rem] rounded-b-lg"></div>
+            <a href="#" class="m-[1rem]">¿Qué hacemos?</a>
+            <div class="h-[1rem]"></div>
+        </li>
+        <li class="flex flex-col justify-between h-[100%]">
+            <div class="h-[1rem] rounded-b-lg"></div>
+            <a onclick="document.getElementById('recentProjects').scrollIntoView({behavior: 'smooth'})" class="m-[1rem] cursor-pointer">Proyectos destacados</a>
+            <div class="h-[1rem]"></div>
+        </li>
+        <li class="flex flex-col justify-between h-[100%]">
+            <div class="h-[1rem] rounded-b-lg"></div>
+            <a onclick="document.getElementById('aboutUsSection').scrollIntoView({behavior: 'smooth'})" class="m-[1rem] cursor-pointer">Familia RCB</a>
+            <div class="h-[1rem]"></div>
+        </li>
+        <li class="flex flex-col justify-between h-[100%]">
+            <div class="h-[1rem] rounded-b-lg"></div>
+            <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="m-[1rem] cursor-pointer">Contacto</a>
+            <div class="h-[1rem]"></div>
+        </li>
+    </ul>
+    {/* text-[20px]/[32px] 2xl:text-[30px]/[38px] */}
+    <div></div>
+    {/*<div class="font-rubik font-medium text-[20px]/[0.75em] 2xl:text-[30px]/[0.75em] text-neutral-400 flex gap-[0.8rem] 2xl:gap-[1.25rem] items-center text-center">
+        <div class="cursor-pointer border-[1.25px] w-[2.25rem] 2xl:w-[2.75rem] aspect-1/1 rounded-[10px] 2xl:rounded-[12.15px] hover:bg-neutral-300 duration-250 ease-in-out p-[5px]">
+            <span><Sun/></span>
+        </div>
+        <div class="cursor-pointer border-[1.25px] w-[2.25rem] 2xl:w-[2.75rem] aspect-1/1 rounded-[10px] 2xl:rounded-[12.15px] hover:bg-neutral-300 duration-250 ease-in-out select-none grid justify-center items-center">
+            <span>es</span>
+        </div>
+    </div> */}
+
+</nav>

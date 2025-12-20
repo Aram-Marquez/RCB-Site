@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets'
+
+
+
+interface Props {
+    title: string,
+    picture: string,
+    alt?: string
+}
+
+const { title, picture, alt } = Astro.props
+const images = import.meta.glob<{default: ImageMetadata}>("../assets/services/*.{jpeg,jpg,png,gif,webp}")
+
+const imgPath = "../assets/services/" + picture
+
+---
+{/* w 400 h 300   ms-[27px] 2xl:ms-[40px] */}
+{/*  */}
+<div class="inline-block h-[12.5rem] 2xl:h-[18.75rem] aspect-4/3 rounded-b-[20px] bg-white text-rcbBlue [box-shadow:-2px_4px_10px_3px_#031F3540] cursor-pointer duration-250 transition ease-in-out hover:not-active:scale-[115%] active:bg-rcbBlue active:text-white">
+    <Image src={images[imgPath]()} alt={alt ?? ''} class="h-[83%] w-[100%] select-none pointer-events-none object-cover object-center" />
+    <div class="flex items-center">
+        <span class="font-rubik font-semibold text-[1rem] 2xl:text-[1.5rem] mx-[20px] mt-[5px] select-none">{title}</span>
+    </div> 
+</div>

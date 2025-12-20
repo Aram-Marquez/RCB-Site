@@ -1,0 +1,68 @@
+[
+	{
+		"name": "Abner Téllez",
+		"role": "Dirección general",
+		"description": "Apasionado por el diseño 3D y la innovación visual.",
+		"picture": "Abner.jpg"
+	},
+	{
+		"name": "Aram Marquez",
+		"role": "Director Creativo",
+		"description": "Vive en el caos creativo y lo transforma en conceptos brillantes.",
+		"picture": "Aram.jpg"
+	},
+	{
+		"name": "Cesar San Nicolás",
+		"role": "Gerente de Proyectos",
+		"description": "Su enfoque estratégico mantiene cada proyecto en marcha y bien encaminado.",
+		"picture": "Cesar.jpg"
+	},
+	{
+		"name": "Juan Morán",
+		"role": "Productor Ejecutivo",
+		"description": "Hace que las cosas pasen, sin drama y con estilo.",
+		"picture": "juan-moran.png"
+	},
+	{
+		"name": "Javier Pérez",
+		"role": "Diseñador",
+		"description": "Cuando algo se vuelve tendencia, probablemente él lo vio venir.",
+		"picture": "javi.jpg"
+	},
+	{
+		"name": "Elda Ledezma",
+		"role": "Artista conceptual",
+		"description": "Explora visualmente cada idea hasta encontrar su forma más poderosa.",
+		"picture": "Elo.jpg"
+	},
+	{
+		"name": "André Rodríguez",
+		"role": "Artista conceptual",
+		"description": "Diseña mundos desde cero con estilo propio.",
+		"picture": "andres.jpg"
+	},
+	{
+		"name": "Ivana Olvera",
+		"role": "Guionista",
+		"description": "Transforma ideas en diálogos y escenas que cautivan.",
+		"picture": "Ivi.jpg"
+	},
+	{
+		"name": "Nadia Delgadillo",
+		"role": "Artista 3D",
+		"description": "Creando modelos 3D con calidad, estilo y animaciones con impacto.",
+		"picture": "Nadia.jpg"
+	},
+	{
+		"name": "Kevin Acosta",
+		"role": "Desarrollador principal",
+		"description": "Usa la programación para insuflar vida a conceptos y propuestas.",
+		"picture": "kevin.jpg"
+	},
+	{
+		"name": "Karla Hernández",
+		"role": "Diseñadora",
+		"description": "Sus ideas creativas siempre dan en el blanco, si ella lo imagina, lo hace realidad.",
+		"picture": "karla.webp"
+	}
+]

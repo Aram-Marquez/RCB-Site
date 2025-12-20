@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets'
+
+interface Props {
+    name: string,
+    role: string,
+    description: string,
+    picture: string,
+    alt?: string,
+    index: number
+}
+
+const { name, role, description, picture, alt, index } = Astro.props
+const images = import.meta.glob<{default: ImageMetadata}>("../assets/about-us/*.{jpeg,jpg,png,gif,webp}")
+
+const imgPath = "../assets/about-us/" + picture
+
+---
+{/* w 438  h 463 padding 16 */}
+{/* aspect-200/211 */}
+<div class="h-[19.25rem] 2xl:h-[28.95rem] w-[100%] max-w-[18.25rem] 2xl:max-w-[27.44rem] about-us perspective-midrange fade-down transition duration-750 ease-in-out" tabindex="0" style={`transition-delay: ${(250 + (index*100))}ms`}>
+    <div class="w-[100%] h-[100%] rounded-[20px] [box-shadow:0_8px_34px_2px_#0B192A40] relative transform-3d transition duration-250">
+        <div class="w-[100%] h-[100%] p-[1.48lvh] rounded-[20px] absolute bg-white backface-hidden flex flex-col justify-between gap-y-[16px] 2xl:gap-y-[24px]">
+            {/* h 317  w 405 aspect-81/63 328.14 */}
+            {/* h-[13.2rem] 2xl:h-[19.8rem] */}
+            <Image src={images[imgPath]()} alt={alt ?? ''} class="h-[70.84%] w-[100%] rounded-[20px] select-none pointer-events-none object-cover object-center grow" />
+            <div class="flex flex-col">
+                <h2 class="font-figtree font-bold text-[1.4rem]/[1.15em] 2xl:text-[2.8rem]/[1.15em] text-rcbBlue text-clip overflow-x-clip whitespace-nowrap">{name}</h2>
+                <h3 class="font-rubik text-[1rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em] text-clip overflow-x-clip whitespace-nowrap">{role}</h3>
+            </div>
+        </div>
+        <div class="w-[100%] h-[100%] p-[16px] rounded-[20px] absolute bg-white backface-hidden rotate-y-180 text-center flex flex-col">
+            <div>
+                <h2 class="font-figtree font-bold text-[1.4rem]/[1.15em] 2xl:text-[2.8rem]/[1.15em] text-rcbBlue">{name}</h2>
+                <h3 class="font-rubik text-[1rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em]">{role}</h3>
+            </div>
+            <div class="grow flex items-center justify-center">
+                <p class="font-rubik text-[1rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em]">{description}</p>
+            </div>
+        </div>
+    </div>
+    
+</div>

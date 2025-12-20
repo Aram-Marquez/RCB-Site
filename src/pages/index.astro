@@ -1,0 +1,212 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+import ServicesCarouselCard from "../components/ServicesCarouselCard.astro"
+import AboutUsCard from "../components/AboutUsCard.astro"
+import RecentCarouselCard from "../components/RecentCarouselCard.astro"
+
+import LeftArrow from "../components/icons/LeftArrow.astro"
+import RightArrow from "../components/icons/RightArrow.astro"
+
+import { Image } from "astro:assets"
+
+import Delight2D from "../assets/delight.webp"
+import Archie from "../assets/archie.webp"
+
+import startLightning from "../assets/start_lightning.svg"
+import lightning2 from "../assets/lightning-2.svg"
+
+//@ts-ignore
+import services from "../data/services.json"
+//@ts-ignore
+import recent from "../data/recent.json"
+//@ts-ignore
+import aboutUs from "../data/aboutUs.json"
+
+//al menos 4 elementos para que el carrusel no se vea raro
+if(recent.length <= 3) recent.push(...recent);
+
+---
+
+
+<BaseLayout title="RCB Studio">
+	{/* INICIO */}
+	<section class="section relative text-white text-[2.25rem]/[1.15em] xl:text-[2.75rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] section-height scroll-mt-[4.5rem] 2xl:scroll-mt-[7rem] overflow-clip">
+		<div class="bg-rcbBlue z-[-1] pointer-events-none select-none w-[100vw] section-height fixed top-[4.5rem] 2xl:top-[7rem] left-0 z-0">
+			<div class="w-[max(100vw,100lvh)] aspect-[1/1] absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 bg-radial from-rcbBlueLight to-transparent to-70% fade-in duration-750 ease-in-out"></div>
+			<div class="w-[max(100vw,100lvh)] aspect-[1/1] absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 bg-radial from-rcbBlueLight to-transparent to-70% fade-in duration-750 ease-in-out"></div>
+			<Image src={startLightning} alt="Lightning decoration" loading="eager" class="absolute top-[-1px] h-[min(40vw,40lvh)] w-auto left-0 pointer-events-none select-none fade-up transition duration-750 ease-in-out"/>
+		</div>
+		{/* 85%  top 7.5 lvh right 16rem */}
+		{/* <div id="start2D" class="absolute h-[85%] top-[7.5lvh] right-[16rem] select-none fade-right transition delay-750 duration-750 ease-in-out">
+			<div class="w-[100%] aspect-4/1 absolute bottom-0 left-[50%] bg-radial from-rcbBlueShadow to-transparent to-70% -translate-x-1/3 translate-y-1/3"></div>
+			<Image src={Delight2D} loading="eager" class="h-[100%] w-auto relative" alt="Delight" />
+			<div class="w-[100%] aspect-4/1 absolute bottom-0 left-[50%] bg-radial from-rcbBlueShadow to-transparent to-70% -translate-x-3/5 translate-y-1/3"></div>
+			<img src="./assets/archie.webp" class="h-[100%] w-auto relative" alt="">
+		</div>  */}
+		
+		
+		<div class="relative xl:mx-[6rem] 2xl:mx-[8rem] grid grid-cols-2">
+
+			<div class="relative z-101 font-figtree font-medium text-center [grid-area:1_/_1_/_2_/_3] lg:[grid-area:1_/_1_/_2_/_2] m-auto w-[345px] xl:w-[425px] 2xl:w-[500px] fade-left transition delay-750 duration-750 ease-in-out">
+				<h1 class="mb-[3.5rem] text-shadow-md/20">
+					<span>Pensar fuera de la caja</span>
+					<span class="font-bold text-rcbSky">siempre ayuda,</span>
+					<span class="font-bold italic">pero a veces</span>
+					<span>las mejores ideas</span>
+					<span class="font-bold text-rcbSky">comienzan con una.</span>
+				</h1>
+				
+				<button class="px-[1.5em] py-[4px] text-[1.5rem] xl:text-[1.75rem] bg-rcbOrange rounded-[14px] xl:rounded-[17px] 2xl:rounded-[20px] select-none cursor-pointer" onclick="document.getElementById('welcome').scrollIntoView({behavior: 'smooth'})">Conócenos</button>
+			</div>
+			{/* <div id="start2D" class="aboslute [grid-area:1_/_1_/_2_/_3] lg:[grid-area:1_/_2_/_2_/_3] flex justify-center items-center h-[calc(100lvh-4.5rem)] 2xl:h-[calc(100lvh-7rem)] pointer-events-none select-none fade-right transition delay-750 duration-750 ease-in-out">
+				<Image src={Delight2D} data-name="delight" class="max-w-[85%] max-h-[85%] w-auto h-auto hidden" loading="eager" alt="Delight" />
+				<Image src={Archie} data-name="archie1" class="max-w-[85%] max-h-[85%] w-auto h-auto hidden" loading="eager" alt="Archie" />
+			</div> */}
+			<div id="start2D" class="aboslute [grid-area:1_/_1_/_2_/_3] lg:[grid-area:1_/_2_/_2_/_3] flex justify-center items-center h-[calc(100lvh-4.5rem)] 2xl:h-[calc(100lvh-7rem)] pointer-events-none select-none">
+				<Image src={Delight2D} data-name="delight" class="max-w-[85%] max-h-[calc((100lvh_-_4.5rem)_*_0.85)] 2xl:max-h-[calc((100lvh_-_7rem)_*_0.85)] w-auto h-auto hidden fade-right transition delay-750 duration-750 ease-in-out fixed z-[-1]" loading="eager" alt="Delight" />
+				<Image src={Archie} data-name="archie1" class="max-w-[85%] max-h-[calc((100lvh_-_4.5rem)_*_0.85)] 2xl:max-h-[calc((100lvh_-_7rem)_*_0.85)] w-auto h-auto hidden fade-right transition delay-750 duration-750 ease-in-out fixed z-[-1]" loading="eager" alt="Archie" />
+			</div>
+			{/* transition delay-750 duration-750 ease-in-out */}
+			<div class="h-[calc(100lvh_-_4.5rem)] 2xl:h-[calc(100lvh_-_7rem)] [grid-area:1_/_1_/_2_/_3] lg:[grid-area:1_/_2_/_2_/_3] select-none fade-right">
+				{/* transition duration-750 opacity-0 */}
+				<div id="start3D" class="z-100 h-[100%] [grid-area:1_/_1_/_2_/_2] "></div>
+			</div>
+		</div>
+	</section>
+
+	{/* CARRUSEL 1 */}
+	<section class="section pt-[5rem] section-height bg-white scroll-mt-[4.5rem] 2xl:scroll-mt-[7rem]" id="welcome">
+		<div class="fade-in transition duration-750 ease-in-out foreground">
+			<h2 class="font-figtree text-rcbBlue font-bold text-[2.25rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] text-center">Bienvenido a RCB Studio</h2>
+			<h3 class="font-redHatDisplay text-rcbBlue font-normal text-[2.25rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] text-center">creamos experiencias al alcance de todos</h3>
+		</div>
+		<div class="grid grid-cols-11 w-[100%] min-h-[calc(100lvh-(120px+5rem))] justify-between items-center overflow-x-clip foreground">
+			<div class="px-[3rem] md:px-[6rem] 2xl:px-[9rem] py-[3rem] xl:pt-0 col-span-11 xl:col-span-5 fade-up transition duration-750 delay-250 ease-in-out">
+				<h2 class="font-rubik text-stone-800 font-bold text-[1.8rem]/[1.15em] 2xl:text-[2.8rem]/[1.15em] mb-[0.5em]">Construyendo proyectos memorables</h2>
+				<p class="font-rubik text-stone-800 text-justify text-[1.15rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em]">En RCB Studio creemos que cualquier negocio tiene el potencial de despegar y crecer de manera exponencial, nuestro modelo de trabajo se basa en colaborar codo a codo con tu negocio, estableciendo retos y midiendo crecimiento.</p>
+			</div>
+			{/* h-[624px] */}
+			<div class="grid col-span-11 xl:col-span-6 bg-rcbBlack xl:rounded-tl-[70px] 2xl:rounded-tl-[105px] min-h-[14.5rem] 2xl:min-h-[21.75rem] h-[min(40vh,80vw)] xl:h-[min(65%,30vw)] overflow-clip fade-right transition duration-750 delay-250 ease-in-out ">
+				{/* ps-[1rem] gap-x-[40px] */}
+				<div id="servicesCarousel" class="servicesCarousel [scrollbar-width:none] overflow-y-auto h-[100%] flex flex-nowrap items-center px-[13.5px] 2xl:px-[20px] gap-x-[27px] 2xl:gap-x-[40px]" tabindex="0">
+					{services.map((card): any => <ServicesCarouselCard title={card.title} picture={card.picture} alt={card.alt}/>)}
+					{services.map((card): any => <ServicesCarouselCard title={card.title} picture={card.picture} alt={card.alt}/>)}
+					{services.map((card): any => <ServicesCarouselCard title={card.title} picture={card.picture} alt={card.alt}/>)}
+				</div>
+			</div>
+			{/* <div class="grid col-span-6 h-[65%] [mask-image:linear-gradient(to_left,rgba(0,0,0,1)_97.5%,rgba(0,0,0,0)_100%)] overflow-clip fade-right transition duration-750 ease-in-out ">
+				<div class="[grid-area:1_/_1_/_2_/_2] h-[100%] ms-[6vw] bg-rcbBlack rounded-tl-[105px]">
+				</div>
+				<div class="carousel1 [grid-area:1_/_1_/_2_/_2] h-[100%] flex flex-nowrap items-center">
+					{services.map((card): any => <ServicesCarouselCard title={card.title} picture={card.picture}/>)}
+					{services.map((card): any => <ServicesCarouselCard title={card.title} picture={card.picture}/>)}
+				</div>
+			</div> */}
+		</div>
+		{/* absolute top-[115lvh] xl:top-[150lvh] z-[-1] h-[75lvh] xl:h-[150lvh] left-0 pointer-events-none select-none fade-left transition duration-750 delay-500 ease-in-out */}
+		<Image loading="lazy" class="absolute top-[115lvh] xl:top-[150lvh] h-[75lvh] xl:h-[150lvh] left-0 pointer-events-none select-none fade-left transition duration-750 delay-500 ease-in-out" src={lightning2} alt="Lightning decoration">
+	</section>
+
+	{/* CARRUSEL 2 */}
+	<section class="section pt-[5rem] xl:pt-0 section-height bg-white scroll-mt-[4.5rem] 2xl:scroll-mt-[7rem]" id="recentProjects">
+		<div class="fade-in transition duration-750 ease-in-out foreground">
+			<h2 class="font-figtree text-slate-900 font-bold text-[2rem]/[1.15em] 2xl:text-[3rem]/[1.15em] text-center">En RCB Studio amamos lo que hacemos.</h2>
+			<h3 class="font-figtree text-slate-900 font-normal text-[2rem]/[1.15em] 2xl:text-[3rem]/[1.15em] text-center">Echa un vistazo a nuestros trabajos recientes.</h3>
+		</div>
+		<div class="fade-down transition duration-750 delay-250 ease-in-out">
+			<div class="grid overflow-hidden">
+				<div class="grid my-[3rem] 2xl:my-[5rem] justify-center [grid-area:1_/_1_/_2_/_2]" id="recentProjectsCarousel">
+					{recent.map((card, idx): any => <RecentCarouselCard title={card.title} picture={card.picture} position={idx > recent.length/2 ? idx - recent.length : idx} alt={card.alt} url={card.url} />)}
+				</div>
+				{/* w 1015 w-[94lvh] */}
+				<div class="text-white w-[40.25lvh] lg:w-[max(37.5vw,87.5lvh)] m-auto flex justify-between items-center [grid-area:1_/_1_/_2_/_2] z-2 pointer-events-none">
+					<button class="w-[3.25rem] xl:w-[4.375rem] aspect-1/1 -translate-x-[50%] bg-rcbRed rounded-full cursor-pointer [box-shadow:0_4px_4px_0_#00000040] hover:bg-rcbDarkRed active:bg-white active:text-black pointer-events-auto transition duration-250" id="recentPrevious"><span class="h-[1.5rem] 2xl:h-[2.25rem] flex justify-center"><LeftArrow/></span></button>
+					<button class="w-[3.25rem] xl:w-[4.375rem] aspect-1/1 translate-x-[50%]  bg-rcbRed rounded-full cursor-pointer [box-shadow:0_4px_4px_0_#00000040] hover:bg-rcbDarkRed active:bg-white active:text-black pointer-events-auto transition duration-250" id="recentNext"><span class="h-[1.5rem] 2xl:h-[2.25rem] flex justify-center"><RightArrow/></span></button>
+				</div>
+			</div>
+			<div class="grid m-auto px-[1rem] md:p-0 md:w-[435px] xl:w-[568px] font-rubik text-[1.15rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em] text-center foreground" id="recentProjectsDescriptions">
+				{recent.map((card, idx): any => <p class="[grid-area:1_/_1_/_2_/_2] recent-card-descriptions transition duration-250" data-position={idx > recent.length/2 ? idx - recent.length : idx}>{card.description}</p>)}
+			</div>
+		</div>
+	</section>
+
+	<section class="section pt-[5rem] h-[50lvh] bg-rcbSky foreground">
+		<div class="fade-in transition duration-750 ease-in-out">
+			<h2 class="font-figtree text-slate-900 font-bold text-[2.25rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] text-center">Para crear experiencias originales</h2>
+			<h3 class="font-redHatDisplay text-slate-900 font-normal text-[2.25rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] text-center">buscamos y trabajamos con talentos originales</h3>
+		</div>
+	</section>
+
+	{/* NOSOTROS */}
+	<div class="section absolute pointer-events-none w-[100vw] section-height" data-relay="aboutUsSection"></div>
+	<section id="aboutUsSection" class="pt-[5rem] px-[1rem] md:px-[3rem] lg:px-[10rem] 2xl:px-[15rem] scroll-mt-[4.5rem] 2xl:scroll-mt-[7rem] bg-white">
+		<div class="fade-in transition duration-750 ease-in-out">
+			<h2 class="xl:w-[480px] font-rubik text-rcbBlue font-bold text-[2rem]/[1.15em] 2xl:text-[3rem]/[1.15em] mb-[0.25em]">Nosotros somos RCB Studio</h2>
+			<p class="xl:w-[783px] mb-[5rem] font-rubik text-stone-800 font-normal text-justify text-[1.15rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em]">Una agencia creativa emergente, con ideas disruptivas que permiten la creatividad; a nosotros nos interesa que tus proyectos crezcan y alcancen sus objetivos.</p>
+		</div>
+
+		<div class="m-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-[2rem] 2xl:gap-[3rem] px-[1rem] lg:px-0">
+			{aboutUs.map((card, idx): any => <AboutUsCard index={idx} name={card.name} role={card.role} description={card.description} picture={card.picture}/>)}
+		</div>
+
+	</section>
+
+	{/* CONTACTO */}
+	<section class="section bg-white pt-[5rem] scroll-mt-[4.5rem] 2xl:scroll-mt-[7rem]" id="contact">
+		<div class="fade-in transition duration-750 ease-in-out">
+			<h2 class="font-figtree text-slate-900 font-bold px-[1rem] text-[2.25rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] text-center">¡Trabajemos juntos!</h2>
+			<h3 class="font-redHatDisplay px-[1rem] xl:p-0 xl:w-[1177px] m-auto text-slate-900 font-normal text-[2.25rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] text-center">cuéntanos un poco acerca de tu idea y con gusto te atenderemos</h3>
+		</div>
+
+		<form id="contactForm" class="text-[1.15rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em] py-[5rem] fade-in transition duration-750 delay-250 ease-in-out" method="post">
+			 {/* Optional hidden fields */}
+			<input type="hidden" name="_subject" value="Nuevo mensaje desde RCB Studio">
+			<!-- <input type="hidden" name="_next" value="https://rcbstudio.mx/thank-you.html"> -->
+			<input type="hidden" name="_captcha" value="false">
+			<div class="fields grid grid-cols-12 gap-x-[1rem] gap-y-[2rem] px-[1rem] xl:px-[9rem] 2xl:px-[19rem]"> 
+				<div class="col-span-12 md:col-span-6 lg:col-span-4 flex"> 
+				<!-- <label for="name" style="color: #241f19;">Nombre completo</label> -->                      
+				<input class="p-[0.75rem] border-transparent border-b-black border-[2px] max-w-[100%] grow" type="text" placeholder="Nombre completo" name="name" id="name" required /> 
+				</div>                     
+				
+				<div class="field col-span-12 md:col-span-6 lg:col-span-4 flex"> 
+				<!-- <label for="phone" style="color: #241f19;">Teléfono</label> -->                    
+				<input class="p-[0.75rem] border-transparent border-b-black border-[2px] max-w-[100%] grow" type="text" placeholder="Teléfono" name="phone" id="phone" /> 
+				</div>  
+
+				<div class="field col-span-12 lg:col-span-4 flex"> 
+				<!-- <label for="email" style="color: #241f19;">Correo electrónico</label> -->                     
+				<input class="p-[0.75rem] border-transparent border-b-black border-[2px] max-w-[100%] grow" type="email" placeholder="Correo electrónico" name="email" id="email" required /> 
+				</div>      
+				
+				<div class="field col-span-12 grid"> 
+				<!-- <label for="message" style="color: #241f19;">Cuéntanos tu idea y presupuesto</label>   -->                       
+				<textarea class="p-[0.75rem] rounded-[1rem] bg-neutral-200" style="resize: none;" name="message" placeholder="Cuéntanos tu idea" id="message" rows="4" required></textarea> 
+				</div>     
+				<div class="field col-span-12 md:col-span-6 flex"> 
+				<!-- <label for="phone" style="color: #241f19;">Teléfono</label> -->                    
+				<input class="p-[0.75rem] border-transparent border-b-black border-[2px] max-w-[100%] grow" type="text" placeholder="Presupuesto $$$" name="budget" id="budget" required /> 
+				</div>    
+				<div class="grid col-span-12 md:col-span-6 flex"> 
+				<!-- <label for="phone" style="color: #241f19;">Teléfono</label> -->                    
+				<input id="formSubmit" data-sitekey={import.meta.env.PUBLIC_CAPTCHA_KEY} class="p-[0.75rem] rounded-[1rem] bg-rcbBlue disabled:bg-neutral-400 disabled:cursor-wait text-white cursor-pointer" value="Enviar" type="submit"/> 
+				
+				</div>                
+			</div>                 
+			<!-- <ul class="actions"> 
+				<li>
+				<input type="submit" disabled value="Mandar mensaje" />
+				</li>                     
+			</ul>   --> 
+			<br/>
+			<span class="px-[1rem] xl:px-[9rem] 2xl:px-[19rem] text-gray-400">
+				This site is protected by reCAPTCHA and the Google
+				<a class="underline decoration-solid text-sky-500" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and
+				<a class="underline decoration-solid text-sky-500" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+			</span>
+		</form>
+			
+	</section>
+
+</BaseLayout>

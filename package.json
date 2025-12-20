@@ -1,0 +1,22 @@
+{
+  "name": "rcb-site-v2",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/lodash": "^4.17.21",
+    "@types/three": "^0.181.0",
+    "astro": "5.16.6",
+    "axios": "^1.13.2",
+    "lodash": "^4.17.21",
+    "sweetalert2": "^11.26.10",
+    "tailwindcss": "^4.1.18",
+    "three": "^0.181.2"
+  }
+}

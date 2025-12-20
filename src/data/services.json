@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Branding",
+		"picture": "branding.png",
+		"alt": "Branding example"
+	},
+	{
+		"title": "Social media MKT",
+		"picture": "social_media.png",
+		"alt": "Social media marketing example"
+	},
+	{
+		"title": "Arte 3D",
+		"picture": "3d_modeling.jpeg",
+		"alt": "3D modeling example"
+	},
+	{
+		"title": "Concept Art",
+		"picture": "concept_art.png",
+		"alt": "Concept art example"
+	}
+]
