@@ -15,3 +15,5 @@ Bun is used as an example, but it can be replaced with npm, deno, etc.
 | `bun preview`         | Preview your build locally, before deploying     |
 | `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `bun astro -- --help` | Get help using the Astro CLI                     |
+
+test
