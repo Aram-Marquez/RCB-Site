@@ -31,7 +31,7 @@ if(recent.length <= 3) recent.push(...recent);
 
 <BaseLayout title="RCB Studio">
 	{/* INICIO */}
-	<section class="section relative text-white text-[2.25rem]/[1.15em] xl:text-[2.75rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] section-height scroll-mt-[4.5rem] 2xl:scroll-mt-[7rem] overflow-clip">
+	<section id="start" class="section relative text-white text-[2.25rem]/[1.15em] xl:text-[2.75rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] section-height scroll-mt-[4.5rem] 2xl:scroll-mt-[7rem] overflow-clip">
 		<div class="bg-rcbBlue z-[-1] pointer-events-none select-none w-[100vw] section-height fixed top-[4.5rem] 2xl:top-[7rem] left-0 z-0">
 			<div class="w-[max(100vw,100lvh)] aspect-[1/1] absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 bg-radial from-rcbBlueLight to-transparent to-70% fade-in duration-750 ease-in-out"></div>
 			<div class="w-[max(100vw,100lvh)] aspect-[1/1] absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 bg-radial from-rcbBlueLight to-transparent to-70% fade-in duration-750 ease-in-out"></div>
@@ -117,7 +117,7 @@ if(recent.length <= 3) recent.push(...recent);
 		<div class="fade-down transition duration-750 delay-250 ease-in-out">
 			<div class="grid overflow-hidden">
 				<div class="grid my-[3rem] 2xl:my-[5rem] justify-center [grid-area:1_/_1_/_2_/_2]" id="recentProjectsCarousel">
-					{recent.map((card, idx): any => <RecentCarouselCard title={card.title} picture={card.picture} position={idx > recent.length/2 ? idx - recent.length : idx} alt={card.alt} url={card.url} />)}
+					{recent.map((card, idx): any => <RecentCarouselCard title={card.title} picture={card.picture} position={idx > recent.length/2 ? idx - recent.length : idx} alt={card.alt} embedId={card.embed} embedType={card.type} />)}
 				</div>
 				{/* w 1015 w-[94lvh] */}
 				<div class="text-white w-[40.25lvh] lg:w-[max(37.5vw,87.5lvh)] m-auto flex justify-between items-center [grid-area:1_/_1_/_2_/_2] z-2 pointer-events-none">
@@ -159,11 +159,12 @@ if(recent.length <= 3) recent.push(...recent);
 			<h3 class="font-redHatDisplay px-[1rem] xl:p-0 xl:w-[1177px] m-auto text-slate-900 font-normal text-[2.25rem]/[1.15em] 2xl:text-[3.25rem]/[1.15em] text-center">cuéntanos un poco acerca de tu idea y con gusto te atenderemos</h3>
 		</div>
 
-		<form id="contactForm" class="text-[1.15rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em] py-[5rem] fade-in transition duration-750 delay-250 ease-in-out" method="post">
+		<form id="contactForm" action="https://formspree.io/f/mjkaaabv" class="text-[1.15rem]/[1.15em] 2xl:text-[1.5rem]/[1.15em] py-[5rem] fade-in transition duration-750 delay-250 ease-in-out" method="post">
 			 {/* Optional hidden fields */}
 			<input type="hidden" name="_subject" value="Nuevo mensaje desde RCB Studio">
-			<!-- <input type="hidden" name="_next" value="https://rcbstudio.mx/thank-you.html"> -->
+			<input type="hidden" name="_next" value="https://rcbstudio.mx?action=message-received">
 			<input type="hidden" name="_captcha" value="false">
+			<input type="hidden" name="message" id="message">
 			<div class="fields grid grid-cols-12 gap-x-[1rem] gap-y-[2rem] px-[1rem] xl:px-[9rem] 2xl:px-[19rem]"> 
 				<div class="col-span-12 md:col-span-6 lg:col-span-4 flex"> 
 				<!-- <label for="name" style="color: #241f19;">Nombre completo</label> -->                      
@@ -182,7 +183,7 @@ if(recent.length <= 3) recent.push(...recent);
 				
 				<div class="field col-span-12 grid"> 
 				<!-- <label for="message" style="color: #241f19;">Cuéntanos tu idea y presupuesto</label>   -->                       
-				<textarea class="p-[0.75rem] rounded-[1rem] bg-neutral-200" style="resize: none;" name="message" placeholder="Cuéntanos tu idea" id="message" rows="4" required></textarea> 
+				<textarea class="p-[0.75rem] rounded-[1rem] bg-neutral-200" style="resize: none;" name="shortMessage" placeholder="Cuéntanos tu idea" id="shortMessage" rows="4" required></textarea> 
 				</div>     
 				<div class="field col-span-12 md:col-span-6 flex"> 
 				<!-- <label for="phone" style="color: #241f19;">Teléfono</label> -->                    
@@ -200,11 +201,6 @@ if(recent.length <= 3) recent.push(...recent);
 				</li>                     
 			</ul>   --> 
 			<br/>
-			<span class="px-[1rem] xl:px-[9rem] 2xl:px-[19rem] text-gray-400">
-				This site is protected by reCAPTCHA and the Google
-				<a class="underline decoration-solid text-sky-500" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and
-				<a class="underline decoration-solid text-sky-500" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
-			</span>
 		</form>
 			
 	</section>

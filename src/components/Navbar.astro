@@ -2,6 +2,12 @@
 
 import Sun from '../components/icons/Sun.astro';
 
+import Home from './icons/Home.astro';
+import Info from './icons/Info.astro';
+import Rocket from './icons/Rocket.astro';
+import Team from './icons/Team.astro';
+import Letter from './icons/Letter.astro';
+
 import { Image } from 'astro:assets';
 import RCBLogo from '../assets/navbar_logo.svg'
 
@@ -12,30 +18,47 @@ const {pathname} = Astro.url;
 <nav class="navbar-height px-[1rem] xl:px-[2rem] bg-white top-0 z-200 flex justify-between gap-x-[0.5rem] xl:gap-x-[1rem] sticky">
     <Image src={RCBLogo} loading="eager" class="w-[6.5rem] 2xl:w-[9.75rem] h-auto inline-block pointer-events-none m-[0.25rem] select-none" alt="RCB Studio logo"/>
 
-    <ul class="hidden font-rubik font-medium text-[1rem] 2xl:text-[1.5rem] text-center lg:flex items-center gap-x-[0.5rem] xl:gap-x-[1rem]">
-        <li aria-current={pathname.slice(1) == '' ? 'page' : false} class="aria-[current='page']:text-rcbOrange flex flex-col justify-between h-[100%]">
-            <div class="bg-rcbOrange h-[1rem] rounded-b-lg"></div>
-            <a href="#" class="m-[1rem]">Inicio</a>
+    <ul class="flex font-rubik font-medium text-[1rem] 2xl:text-[1.5rem] text-center items-center gap-x-[0.5rem] xl:gap-x-[1rem]">
+        {/* aria-current={pathname.slice(1) == '' ? 'page' : false} class="aria-[current='page']:text-rcbOrange flex flex-col justify-between h-[100%]" */}
+        <li class="hover:text-rcbOrange flex flex-col justify-between h-[100%] duration-250 transition">
+            {/* bg-rcbOrange */}
+            <div class="h-[1rem] rounded-b-lg"></div>
+            <a onclick="document.getElementById('start').scrollIntoView({behavior: 'smooth'})" class="m-[0.5rem] md:m-[1rem] cursor-pointer">
+                <span class="block lg:hidden w-[2rem]"><Home/></span>
+                <span class="hidden lg:block">Inicio</span>
+            </a>
             <div class="h-[1rem]"></div>
         </li>
-        <li class="flex flex-col justify-between h-[100%]">
+        <li class="hover:text-rcbOrange flex flex-col justify-between h-[100%] duration-250 transition">
             <div class="h-[1rem] rounded-b-lg"></div>
-            <a href="#" class="m-[1rem]">¿Qué hacemos?</a>
+            <a onclick="document.getElementById('welcome').scrollIntoView({behavior: 'smooth'})" class="m-[0.5rem] md:m-[1rem] cursor-pointer">
+                <span class="block lg:hidden w-[2rem]"><Info/></span>
+                <span class="hidden lg:block">¿Qué hacemos?</span>
+            </a>
             <div class="h-[1rem]"></div>
         </li>
-        <li class="flex flex-col justify-between h-[100%]">
+        <li class="hover:text-rcbOrange flex flex-col justify-between h-[100%] duration-250 transition">
             <div class="h-[1rem] rounded-b-lg"></div>
-            <a onclick="document.getElementById('recentProjects').scrollIntoView({behavior: 'smooth'})" class="m-[1rem] cursor-pointer">Proyectos destacados</a>
+            <a onclick="document.getElementById('recentProjects').scrollIntoView({behavior: 'smooth'})" class="m-[0.5rem] md:m-[1rem] cursor-pointer">
+                <span class="block lg:hidden w-[2rem]"><Rocket/></span>
+                <span class="hidden lg:block">Proyectos destacados</span>
+            </a>
             <div class="h-[1rem]"></div>
         </li>
-        <li class="flex flex-col justify-between h-[100%]">
+        <li class="hover:text-rcbOrange flex flex-col justify-between h-[100%] duration-250 transition">
             <div class="h-[1rem] rounded-b-lg"></div>
-            <a onclick="document.getElementById('aboutUsSection').scrollIntoView({behavior: 'smooth'})" class="m-[1rem] cursor-pointer">Familia RCB</a>
+            <a onclick="document.getElementById('aboutUsSection').scrollIntoView({behavior: 'smooth'})" class="m-[0.5rem] md:m-[1rem] cursor-pointer">
+                <span class="block lg:hidden w-[2rem]"><Team/></span>
+                <span class="hidden lg:block">Familia RCB</span>
+            </a>
             <div class="h-[1rem]"></div>
         </li>
-        <li class="flex flex-col justify-between h-[100%]">
+        <li class="hover:text-rcbOrange flex flex-col justify-between h-[100%] duration-250 transition">
             <div class="h-[1rem] rounded-b-lg"></div>
-            <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="m-[1rem] cursor-pointer">Contacto</a>
+            <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="m-[0.5rem] md:m-[1rem] cursor-pointer">
+                <span class="block lg:hidden w-[2rem]"><Letter/></span>
+                <span class="hidden lg:block">Contacto</span>
+            </a>
             <div class="h-[1rem]"></div>
         </li>
     </ul>
