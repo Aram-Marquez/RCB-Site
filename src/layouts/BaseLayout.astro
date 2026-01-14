@@ -34,9 +34,6 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
-        {/* <script is:inline src={'https://www.google.com/recaptcha/enterprise.js?render='+import.meta.env.PUBLIC_CAPTCHA_KEY} async defer></script> */}
-        <script is:inline src={'https://www.google.com/recaptcha/enterprise.js?render='+import.meta.env.PUBLIC_CAPTCHA_KEY} async defer></script>
-        {/* <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script> */}
 
 	</head>
 	<body class="overflow-clip data-[loaded=true]:overflow-y-auto data-[loaded=true]:overflow-x-clip">

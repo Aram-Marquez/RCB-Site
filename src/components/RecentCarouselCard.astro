@@ -6,17 +6,18 @@ interface Props {
     picture: string,
     position: number,
     alt?: string,
-    url?: string,
+    embedId?: string,
+    embedType?: string
 }
 
-const { title, picture, position, alt, url } = Astro.props
+const { title, picture, position, alt, embedId, embedType } = Astro.props
 const images = import.meta.glob<{default: ImageMetadata}>("../assets/recent/*.{jpeg,jpg,png,gif,webp}")
 
 const imgPath = "../assets/recent/" + picture
 
 ---
 {/* w 378 h 505 */}
- <div data-position={position} data-title={title} { ...(url != null && {'data-url': url}) } class="h-[max(20vw,46.75lvh)] aspect-3/4 [grid-area:1_/_1_/_2_/_2] recent-card-animations transition duration-250">
+ <div data-position={position} data-title={title} { ...(embedId != null && { 'data-embedid': embedId, 'data-type': embedType }) } class="h-[max(20vw,46.75lvh)] aspect-3/4 [grid-area:1_/_1_/_2_/_2] recent-card-animations transition duration-250">
 
      <Image src={images[imgPath]()} alt={alt ?? ''} class="w-[100%] h-[100%] select-none pointer-events-none object-cover object-center rounded-[20px]"  />
  </div>
